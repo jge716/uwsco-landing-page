@@ -31,23 +31,19 @@
       position: relative;
     }
 
-    /* Logos */
-    #logo-left {
+    /* Logos: same size, aligned top corners */
+    #logo-left, #logo-right {
       position: fixed;
       top: 20px;
-      left: 20px;
-      width: 200px; /* double size */
+      width: 250px;  /* same size for both */
       height: auto;
       z-index: 10;
     }
-
+    #logo-left {
+      left: 20px;
+    }
     #logo-right {
-      position: fixed;
-      top: 20px;
       right: 20px;
-      width: 400px; /* quadruple size */
-      height: auto;
-      z-index: 10;
     }
 
     .container {
@@ -120,10 +116,7 @@
       form button {
         font-size: 1rem;
       }
-      #logo-left {
-        width: 100px;
-      }
-      #logo-right {
+      #logo-left, #logo-right {
         width: 150px;
       }
     }
