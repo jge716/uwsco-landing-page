@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Water Test</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Quicksand', sans-serif;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body {
+      background: url(glass-of-water.jpg) no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    /* Logos */
+    #logo-left, #logo-right {
+      position: fixed;
+      top: 20px;
+      object-fit: contain;
+      z-index: 10;
+      user-select: none;
+    }
+
+    #logo-left {
+      left: 20px;
+      max-height: 120px;  /* doubled from 60 */
+      max-width: 360px;   /* doubled from 180 */
+    }
+
+    #logo-right {
+      right: 20px;
+      max-height: 240px;  /* quadrupled from 60 */
+      max-width: 480px;   /* adjusted to fit */
+    }
+
+    /* Prevent right logo from going offscreen on narrow screens */
+    @media (max-width: 720px) {
+      #logo-right {
+        max-width: 300px;
+        max-height: 150px;
+        right: 10px;
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.10);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #e0f7fa;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+      letter-spacing: 1px;
+    }
+
+    form input {
+      width: 100%;
+      padding: 15px 18px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline: none;
+      background: rgba(255, 255, 255, 0.95);
+      color: #000;
+      font-weight: 600;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    form button {
+      width: 100%;
+      padding: 15px;
+      background: #0288d1;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Quicksand', sans-serif;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #015f8b;
+    }
+
+    #responseMessage {
+      margin-top: 20px;
+      color: #a5d6f9;
+      font-weight: 700;
+      display: none;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      form button {
+        font-size: 1rem;
+      }
+      #logo-left {
+        max-height: 80px;
+        max-width: 240px;
+      }
+      #logo-right {
+        max-height: 120px;
+        max-width: 240px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="uwscologo.jpg" alt="UWSCO Logo" id="logo-left" />
+  <img src="ecowater.jpg" alt="EcoWater Logo" id="logo-right" />
+
+  <div class="container" role="main" aria-label="Free water test lead capture form">
+    <h1>
+      Are you a homeowner in the Fort Collins/Loveland area wondering what's in your tap water and how it affects your home and health? Want to learn the best ways for cleaning up your H2O? Get a free, no-obligation and informative water test this week. Maybe even today!
+    </h1>
+    <form id="leadForm" action="https://formspree.io/f/xnnvwkdd" method="POST">
+      <input type="hidden" name="_replyto" value="jgerickson7@gmail.com" />
+      <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+      <input type="tel" name="phone" placeholder="Your Phone Number" required pattern="[0-9\s\-\+\(\)]{7,}" autocomplete="tel" />
+      <button type="submit">Find Your Water Expert Today!</button>
+    </form>
+    <p id="responseMessage">Thank you! We’ll contact you soon.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const responseMsg = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      responseMsg.style.display = 'block';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
