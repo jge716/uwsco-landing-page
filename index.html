@@ -31,19 +31,21 @@
       position: relative;
     }
 
-    /* Logos: same size, aligned top corners */
-    #logo-left, #logo-right {
+    /* Logos stacked on left, same size */
+    #logo-left-container {
       position: fixed;
       top: 20px;
-      width: 250px;  /* same size for both */
-      height: auto;
-      z-index: 10;
-    }
-    #logo-left {
       left: 20px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 250px; /* width for both logos */
     }
-    #logo-right {
-      right: 20px;
+    #logo-left-container img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .container {
@@ -116,16 +118,19 @@
       form button {
         font-size: 1rem;
       }
-      #logo-left, #logo-right {
+      #logo-left-container {
         width: 150px;
+        gap: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Logos -->
-  <img id="logo-left" src="UWSCOLOGO.jpg" alt="UWSCO Logo" />
-  <img id="logo-right" src="EcoWater.jpg" alt="EcoWater Logo" />
+  <!-- Logos stacked on left -->
+  <div id="logo-left-container">
+    <img src="UWSCOLOGO.jpg" alt="UWSCO Logo" />
+    <img src="EcoWater.jpg" alt="EcoWater Logo" />
+  </div>
 
   <div class="container" role="main" aria-label="Free water test lead capture form">
     <h1>
