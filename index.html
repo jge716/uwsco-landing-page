@@ -31,15 +31,29 @@
       position: relative;
     }
 
-    /* Completely removed overlay */
-    body::before {
-      content: none;
+    /* Logos */
+    #logo-left {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 200px; /* double size */
+      height: auto;
+      z-index: 10;
+    }
+
+    #logo-right {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 400px; /* quadruple size */
+      height: auto;
+      z-index: 10;
     }
 
     .container {
       position: relative;
       z-index: 1;
-      background: rgba(255, 255, 255, 0.10); /* Transparent, only subtle tint */
+      background: rgba(255, 255, 255, 0.10);
       border-radius: 20px;
       padding: 40px 30px;
       max-width: 600px;
@@ -106,10 +120,20 @@
       form button {
         font-size: 1rem;
       }
+      #logo-left {
+        width: 100px;
+      }
+      #logo-right {
+        width: 150px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Logos -->
+  <img id="logo-left" src="UWSCOLOGO.jpg" alt="UWSCO Logo" />
+  <img id="logo-right" src="EcoWater.jpg" alt="EcoWater Logo" />
+
   <div class="container" role="main" aria-label="Free water test lead capture form">
     <h1>
       Are you a homeowner in the Fort Collins/Loveland area wondering what's in your tap water and how it affects your home and health? Want to learn the best ways for cleaning up your H2O? Get a free, no-obligation and informative water test this week. Maybe even today!
