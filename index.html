@@ -18,7 +18,6 @@
       font-family: 'Quicksand', sans-serif;
       color: white;
       overflow: hidden;
-      position: relative;
     }
 
     body {
@@ -32,40 +31,15 @@
       position: relative;
     }
 
-    /* Logos */
-    #logo-left, #logo-right {
-      position: fixed;
-      top: 20px;
-      object-fit: contain;
-      z-index: 10;
-      user-select: none;
-    }
-
-    #logo-left {
-      left: 20px;
-      max-height: 120px;  /* doubled from 60 */
-      max-width: 360px;   /* doubled from 180 */
-    }
-
-    #logo-right {
-      right: 20px;
-      max-height: 240px;  /* quadrupled from 60 */
-      max-width: 480px;   /* adjusted to fit */
-    }
-
-    /* Prevent right logo from going offscreen on narrow screens */
-    @media (max-width: 720px) {
-      #logo-right {
-        max-width: 300px;
-        max-height: 150px;
-        right: 10px;
-      }
+    /* Completely removed overlay */
+    body::before {
+      content: none;
     }
 
     .container {
       position: relative;
       z-index: 1;
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.10); /* Transparent, only subtle tint */
       border-radius: 20px;
       padding: 40px 30px;
       max-width: 600px;
@@ -132,28 +106,15 @@
       form button {
         font-size: 1rem;
       }
-      #logo-left {
-        max-height: 80px;
-        max-width: 240px;
-      }
-      #logo-right {
-        max-height: 120px;
-        max-width: 240px;
-        right: 10px;
-      }
     }
   </style>
 </head>
 <body>
-  <img src="UWSCOLOGO.jpg" alt="UWSCO Logo" id="logo-left" />
-  <img src="EcoWater.jpg" alt="EcoWater Logo" id="logo-right" />
-
   <div class="container" role="main" aria-label="Free water test lead capture form">
     <h1>
       Are you a homeowner in the Fort Collins/Loveland area wondering what's in your tap water and how it affects your home and health? Want to learn the best ways for cleaning up your H2O? Get a free, no-obligation and informative water test this week. Maybe even today!
     </h1>
     <form id="leadForm" action="https://formspree.io/f/xnnvwkdd" method="POST">
-      <input type="hidden" name="_replyto" value="jgerickson7@gmail.com" />
       <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
       <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
       <input type="tel" name="phone" placeholder="Your Phone Number" required pattern="[0-9\s\-\+\(\)]{7,}" autocomplete="tel" />
@@ -161,16 +122,5 @@
     </form>
     <p id="responseMessage">Thank you! We’ll contact you soon.</p>
   </div>
-
-  <script>
-    const form = document.getElementById('leadForm');
-    const responseMsg = document.getElementById('responseMessage');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      responseMsg.style.display = 'block';
-      form.reset();
-    });
-  </script>
 </body>
 </html>
